@@ -1,3 +1,7 @@
+environment {
+        CUSTOMER = 'test'
+    }
+
 node {
 	stage ('checkout SCM') {
 		checkout scm
@@ -9,7 +13,7 @@ node {
 		}
 
 	stage ('write back to customer git dir') {
-//		sh "mkdir -p customer/${customer}"
+		sh "mkdir -p customer/${CUSTOMER}"
 //		sh "cp -r vpc-network customer/${customer}"
 //		sh "git add customer && git commit -m 'new terraform files' && git push origin master"
 		}
