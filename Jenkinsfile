@@ -13,7 +13,7 @@ node {
 		}
 
 	stage ('write back to customer git dir') {
-		echo ${CUSTOMER}
+		echo "${CUSTOMER}"
 		sh "mkdir -p customer/'${CUSTOMER}'"
 //		sh "cp -r vpc-network customer/${customer}"
 //		sh "git add customer && git commit -m 'new terraform files' && git push origin master"
