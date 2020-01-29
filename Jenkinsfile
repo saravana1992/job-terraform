@@ -1,4 +1,7 @@
 node {
+	stage ('checkout SCM') {
+		checkout scm
+	}
 	stage ('Edit files') {
 		sh "sed -i 's/variable01/${project_name}/g' vpc-network/variables.tf"
 		sh "sed -i 's/variable02/${region}/g' vpc-network/variables.tf"
