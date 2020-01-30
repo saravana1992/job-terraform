@@ -5,19 +5,19 @@
 
 variable "project" {
   description = "The project ID for the network"
-  default = ""
+  default = "variable01"
   type        = string
 }
 
 variable "region" {
   description = "The region for subnetworks in the network"
-  default = ""
+  default = "variable02"
   type        = string
 }
 
 variable "name_prefix" {
   description = "A name prefix used in resource names to ensure uniqueness across a project."
-  default = ""
+  default = "variable03"
   type        = string
 }
 
