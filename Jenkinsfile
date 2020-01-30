@@ -16,8 +16,8 @@ node {
 
 	stage ('write back to customer git dir') {
 		withCredentials([usernamePassword(credentialsId: 'git_new', usernameVariable: 'username', passwordVariable: 'password')]){
-			sh ("mkdir -p customer/'${client}')"
-			sh ("cp -r vpc-network customer/${client}/)"
+			sh ("mkdir -p customer/'${client}'")
+			sh ("cp -r vpc-network customer/${client}/")
 			sh ("git add customer && git commit -m 'new terraform files' && git config --global push.default simple && git remote set-url origin https://$username:$password@github.com/saravana1992/job-terraform.git && git push origin HEAD:master")
 		}
 	}
