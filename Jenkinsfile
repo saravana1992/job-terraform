@@ -4,7 +4,9 @@ environment {
 
 node {
 	stage ('checkout SCM') {
-		checkout scm
+		withCredentials([usernamePassword(credentialsId: 'git', usernameVariable: 'username', passwordVariable: 'password')]){
+			checkout scm
+		}
 	}
 	stage ('Edit files') {
 		sh "sed -i 's/variable01/${project_name}/g' vpc-network/variables.tf"
@@ -17,8 +19,7 @@ node {
 			//		echo "${CUSTOMER}"
 			//		sh "mkdir -p customer/'${CUSTOMER}'"
 			sh "cp -r vpc-network customer/techolution"
-			sh "git config --global push.default simple"
-			sh ("git add customer && git commit -m 'new terraform files' &&  git push https://$username:$password@github.com/saravana1992/job-terraform.git")
+			sh ("git add customer && git commit -m 'new terraform files' && git config --global push.default simple && git remote set-url origin https://$username:$password@github.com/saravana1992/job-terraform.git && git push --set-upstream origin master")
 		}
 	}
 }
