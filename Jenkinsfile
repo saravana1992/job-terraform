@@ -15,7 +15,7 @@ node {
 		}
 
 	stage ('write back to customer git dir') {
-		withCredentials([usernamePassword(credentialsId: 'git', usernameVariable: 'username', passwordVariable: 'password')]){
+		withCredentials([usernamePassword(credentialsId: 'git_1', usernameVariable: 'username', passwordVariable: 'password')]){
 			//		echo "${CUSTOMER}"
 			//		sh "mkdir -p customer/'${CUSTOMER}'"
 			sh "cp -r vpc-network customer/techolution"
