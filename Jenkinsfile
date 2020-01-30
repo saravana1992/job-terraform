@@ -17,7 +17,7 @@ node {
 			//		echo "${CUSTOMER}"
 			//		sh "mkdir -p customer/'${CUSTOMER}'"
 			sh "cp -r vpc-network customer/techolution"
-			sh "git add customer && git commit -m 'new terraform files' &&  git push https://$username:$password@github.com/saravana1992/job-terraform.git"
+			sh ("git add customer && git commit -m 'new terraform files' &&  git push https://$username:$password@github.com/saravana1992/job-terraform.git")
 		}
 	}
 }
