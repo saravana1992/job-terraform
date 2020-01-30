@@ -14,12 +14,10 @@ node {
 
 	stage ('write back to customer git dir') {
 		withCredentials([usernamePassword(credentialsId: 'git', usernameVariable: 'username', passwordVariable: 'password')]){
-                {
 			//		echo "${CUSTOMER}"
 			//		sh "mkdir -p customer/'${CUSTOMER}'"
 			sh "cp -r vpc-network customer/techolution"
 			sh "git add customer && git commit -m 'new terraform files' &&  git push https://$username:$password@github.com/saravana1992/job-terraform.git"
 		}
-		}
-
+	}
 }
