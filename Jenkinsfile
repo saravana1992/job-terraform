@@ -16,7 +16,7 @@ node {
 
 	stage ('Git commit to customer git bucket') {
 		withCredentials([usernamePassword(credentialsId: 'git_new', usernameVariable: 'username', passwordVariable: 'password')]){
-			sh ("git remote rm origin && git add . && git commit -m 'new terraform files' && git config --global push.default simple && git remote add origin https://$username:$password@github.com/${github_repo_url} && git pull origin master && git push origin HEAD:master")
+			sh ("git remote rm origin && git add . && git commit -m 'new terraform files' && git config --global push.default simple && git remote add origin https://$username:$password@github.com/${github_repo} && git pull origin master && git push origin HEAD:master")
 		}
 	}
 }
