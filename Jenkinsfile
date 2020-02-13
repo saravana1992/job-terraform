@@ -16,7 +16,7 @@ node {
 
 	stage ('write back to customer git dir') {
 		withCredentials([usernamePassword(credentialsId: 'git_new', usernameVariable: 'username', passwordVariable: 'password')]){
-			sh ("mkdir -p vpc'")
+			sh ("mkdir -p vpc")
 			sh ("cp -r vpc-network vpc/")
 			sh ("git remote remove origin && git add . && git commit -m 'new terraform files' && git config --global push.default simple && git remote set-url origin https://$username:$password@github.com/saravana1992/test-terraform-new.git && git push origin whatever:refs/heads/master")
 		}
